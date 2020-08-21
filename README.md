@@ -1,5 +1,7 @@
 # PHPTwitchBot
-======
+------
+A Twitch Chat bot written in PHP using [ReactPHP](https://reactphp.org)
+
 
 ## Installation/Configuration
 ------
