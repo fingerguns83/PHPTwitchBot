@@ -147,12 +147,12 @@ class Message {
         if ($execute){
             if ($response['output'] == "function"){
                 $file = './functions/' . trim($this->command) . ".php";
-                //ob_start();
+                ob_start();
                 include $file;
                 $output = ob_get_clean();
                 $update = "UPDATE commands SET last_used=" . time() . " WHERE input='".trim($this->command)."'";
-                //$conn->query($update);
-                //return $output;
+                $conn->query($update);
+                return $output;
             }
             else {
                 $update = "UPDATE commands SET last_used=" . time() . " WHERE input='".trim($this->command)."'";
