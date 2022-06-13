@@ -116,31 +116,32 @@ class Message {
         //$live = true;
         $available = (time() > $response['last_used'] + $response['cooldown'] ? true : false);
         $restricted = (boolval($response['mod_only']) ? true : false);
+        $disabled = (boolval($response['turned_off']) ? true : false);
         if ($live){
-            if (!$restricted){
-                if ((boolval($user->isMod)) || (boolval($user->isBroadcaster)) || ($available)){
-                    $execute = true;
+            if (!$disabled){
+                if (!$restricted){
+                    if ((boolval($user->isMod)) || (boolval($user->isBroadcaster)) || ($available)){
+                        $execute = true;
+                    }
+                    else {
+                        $execute = false;
+                    }
                 }
                 else {
-                    $execute = false;
+                    if ((boolval($user->isMod)) || (boolval($user->isBroadcaster))){
+                        $execute = true;
+                    }
+                    else {
+                        $execute = false;
+                    }
                 }
             }
             else {
-                if ((boolval($user->isMod)) || (boolval($user->isBroadcaster))){
-                    $execute = true;
-                }
-                else {
-                    $execute = false;
-                }
+                $execute = (boolval($user->isBroadcaster) ? true : false);
             }
         }
         else {
-            if (boolval($user->isBroadcaster)){
-                $execute = true;
-            }
-            else {
-                $execute = false;
-            }
+            $execute = (boolval($user->isBroadcaster) ? true : false);
         }
 
         if ($execute){

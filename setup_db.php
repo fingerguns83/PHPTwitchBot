@@ -30,7 +30,8 @@ $stmt = "CREATE TABLE commands (
   output TEXT NOT NULL,
   mod_only INT(11) DEFAULT 0 NOT NULL,
   cooldown INT(32) DEFAULT 600 NOT NULL,
-  last_used INT(32) DEFAULT 0 NOT NULL
+  last_used INT(32) DEFAULT 0 NOT NULL,
+  turned_off INT(11) DEFAULT 0 NOT NULL
   )";
 
 if ($sql->query($stmt) === true){

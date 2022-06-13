@@ -6,7 +6,7 @@ $secret = "oauth:";
 // Name of your bot account
 $nick = "<bot display name>";
 
-// Twitch Application Client Info
+// Twitch Application Info: https://dev.twitch.tv/console
 $client_id = '<app client id>';
 $client_secret = '<app client secret>';
 
@@ -15,9 +15,11 @@ $hostname = '<host>';
 $username = '<user>';
 $password = '<password>';
 
-$sqlconn = new mysqli($hostname, $username, $password, 'PHPTwitchBot');
-
 // Name of the channel the bot will be active on
 $broadcaster = '<channel display name>';
 
+
+
+/* leave this line alone */
+$sqlconn = new mysqli($hostname, $username, $password, 'PHPTwitchBot');
 ?>

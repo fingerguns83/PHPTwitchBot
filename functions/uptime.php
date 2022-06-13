@@ -17,7 +17,7 @@ try {
     // Your bearer token
     $twitch_access_token = $data->access_token ?? null;
 } catch (Exception $e) {}
-$response = $twitchApi->getStreamsApi()->getStreamForUsername($twitch_access_token, 'Glaivetw');
+$response = $twitchApi->getStreamsApi()->getStreamForUsername($twitch_access_token, $broadcaster);
 $responseContent = json_decode($response->getBody()->getContents(), true);
 if (isset($responseContent['data'][0])){
   $start = strtotime($responseContent['data'][0]['started_at']);
