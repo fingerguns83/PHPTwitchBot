@@ -1,0 +1,7 @@
+{
+    "require": {
+        "clue/zenity-react": "^0.4.4",
+        "react/react": "^1.2",
+        "nicklaw5/twitch-api-php": "^4.0"
+    }
+}
